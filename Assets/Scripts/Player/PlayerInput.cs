@@ -4,16 +4,19 @@ using UnityEngine;
 
 [RequireComponent(typeof(Player))]
 [RequireComponent(typeof(PlayerMover))]
+[RequireComponent(typeof(Shooter))]
 public class PlayerInput : MonoBehaviour
 {
     private Player _player;
     private PlayerMover _mover;
+    private Shooter _shooter;
     private Coroutine _shootCorutine;
 
     private void Start()
     {
         _player = GetComponent<Player>();
         _mover = GetComponent<PlayerMover>();
+        _shooter = GetComponent<Shooter>();
     }
 
     private void Update()
@@ -28,12 +31,20 @@ public class PlayerInput : MonoBehaviour
             StartCoroutine(_mover.Jump());
 
         if (Input.GetKeyDown(KeyCode.E))
-            _player.SwitchWeapon();
+            _shooter.SwitchWeapon();
 
         if (Input.GetMouseButtonDown(0))
-            _shootCorutine = StartCoroutine(_player.CurrentWeapon.Shoot());
+            _shootCorutine = StartCoroutine(_shooter.CurrentWeapon.Shoot());
 
         if (Input.GetMouseButtonUp(0))
+            StopCoroutine(_shootCorutine);
+    }
+
+    public void ChangeShooter(Shooter shooter)
+    {
+        _shooter = shooter;
+
+        if (_shootCorutine != null)
             StopCoroutine(_shootCorutine);
     }
 }

@@ -2,38 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(SpriteRenderer))]
 public class Player : MonoBehaviour
 {
     [SerializeField] private int _health;
-    [SerializeField] private GameObject[] _weapons;
+    [SerializeField] private GameObject _car;
 
+    private SpriteRenderer _sprite;
+    private int _currentHealth;
     private int _money = 0;
-    private int _currentWeaponId;
-    private Weapon _currentWeapon;
-
-    public Weapon CurrentWeapon => _currentWeapon;
 
     private void Start()
     {
-        InitializeWeapons();
+        _sprite = GetComponent<SpriteRenderer>();
+
+        _currentHealth = _health;
     }
 
-    public void ChangeWeapon()
+    public void PickUpCar()
     {
 
     }
 
-    public void SwitchWeapon()
+    public void LeaveCar()
     {
-        _weapons[_currentWeaponId].SetActive(false);
 
-        if (_currentWeaponId == _weapons.Length - 1)
-            _currentWeaponId = 0;
-        else
-            _currentWeaponId++;
-
-        _weapons[_currentWeaponId].SetActive(true);
-        _currentWeapon = _weapons[_currentWeaponId].GetComponent<Weapon>();
     }
 
     public void TakeReward(int value)
@@ -47,19 +40,6 @@ public class Player : MonoBehaviour
 
         if (_health <= 0)
             Die();
-    }
-
-    private void InitializeWeapons()
-    {
-        _currentWeaponId = 0;
-
-        foreach (var weapon in _weapons)
-        {
-            weapon.SetActive(false);
-        }
-
-        _weapons[_currentWeaponId].SetActive(true);
-        _currentWeapon = _weapons[_currentWeaponId].GetComponent<Weapon>();
     }
 
     private void Die()

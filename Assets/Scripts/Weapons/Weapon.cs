@@ -21,9 +21,7 @@ public abstract class Weapon : MonoBehaviour
     protected IEnumerator Reload()
     {
         IsReloaded = false;
-        Debug.Log("sssssssss");
         yield return ReloadTime;
-        Debug.Log("eeeeeeeeeeee");
         IsReloaded = true;
     }
 }
