@@ -6,7 +6,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private int _health;
-    [SerializeField] private GameObject _car;
 
     private SpriteRenderer _sprite;
     private int _currentHealth;
@@ -18,17 +17,7 @@ public class Player : MonoBehaviour
 
         _currentHealth = _health;
     }
-
-    public void PickUpCar()
-    {
-
-    }
-
-    public void LeaveCar()
-    {
-
-    }
-
+    
     public void TakeReward(int value)
     {
         _money += value;

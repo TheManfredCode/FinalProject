@@ -39,6 +39,7 @@ public class Enemy : MonoBehaviour
     private void Die()
     {
         gameObject.SetActive(false);
+
         if(_reward != null)
             Instantiate(_reward, transform.position, Quaternion.identity);
     }

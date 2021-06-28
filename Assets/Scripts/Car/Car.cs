@@ -8,16 +8,18 @@ public class Car : MonoBehaviour
     [SerializeField] private int _health;
     [SerializeField] private float _fuel;
     [SerializeField] private float _fuelExpenditure;
+    [SerializeField] private float _carSpeed;
 
     private int _currentHealth;
     private float _currentFuel;
 
-    public event UnityAction FuelExpired;
-    public event UnityAction CarDestroyed;
+    public event UnityAction<float> Launched;
+    public event UnityAction Stopped;
 
-    private void Start()
+    private void OnEnable()
     {
         ResetStats();
+        Launched?.Invoke(_carSpeed);
     }
 
     private void Update()
@@ -26,7 +28,7 @@ public class Car : MonoBehaviour
 
         if(_currentFuel <= 0)
         {
-            FuelExpired?.Invoke();
+            Stopped?.Invoke();
         }
     }
 
@@ -35,7 +37,7 @@ public class Car : MonoBehaviour
         _currentHealth -= damage;
 
         if (_currentHealth <= 0)
-            CarDestroyed.Invoke();
+            Stopped.Invoke();
     }
 
     public void ResetStats()

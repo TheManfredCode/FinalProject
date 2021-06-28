@@ -5,34 +5,54 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class PlayerMover : MonoBehaviour
 {
-    [SerializeField] private float _speed;
+    [SerializeField] private float _startSpeed;
+    [SerializeField] private float _changeLineSpeed;
     [SerializeField] private float _stepSize;
     [SerializeField] private float _maxHeight;
     [SerializeField] private float _minHeight;
     [SerializeField] private float _jumpHeight;
     [SerializeField] private float _jumpDuration;
+    [SerializeField] private Car _car;
 
+    private float _speed;
     private BoxCollider2D _collider;
-    private Vector3 _targetPosition;
+    private float _targetPositionY;
     private WaitForSeconds _jumpTimer;
     private Vector2 _startColliderOffset;
     private bool _isGrounded = true;
 
     public bool IsGrounded => _isGrounded;
+    public float Speed => _speed;
+
+    private void OnEnable()
+    {
+        _car.Launched += OnCarLaunched;
+        _car.Stopped += OnCarStopped;
+    }
+
+    private void OnDisable()
+    {
+        _car.Launched -= OnCarLaunched;
+        _car.Stopped -= OnCarStopped;
+    }
 
     private void Start()
     {
         _collider = GetComponent<BoxCollider2D>();
-        _targetPosition = transform.position;
-
         _jumpTimer = new WaitForSeconds(_jumpDuration);
+
+        _speed = _startSpeed;
         _startColliderOffset = _collider.offset;
     }
 
     private void Update()
     {
-        if (_targetPosition != transform.position)
-            transform.position = Vector3.MoveTowards(transform.position, _targetPosition, _speed * Time.deltaTime);
+        transform.Translate(Vector3.right * _speed * Time.deltaTime);
+
+        if (transform.position.y != _targetPositionY)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(transform.position.x, _targetPositionY), _changeLineSpeed * Time.deltaTime);
+        }
     }
 
     public IEnumerator Jump()
@@ -48,18 +68,23 @@ public class PlayerMover : MonoBehaviour
 
     public void TryMoveUp()
     {
-        if(_targetPosition.y < _maxHeight)
-            SetNextPosition(_stepSize);
+        if (_targetPositionY < _maxHeight)
+            _targetPositionY += _stepSize;
     }
 
     public void TryMoveDown()
     {
-        if(_targetPosition.y > _minHeight)
-            SetNextPosition(-_stepSize);
+        if (_targetPositionY > _minHeight)
+            _targetPositionY -= _stepSize;
     }
 
-    private void SetNextPosition(float stepSize)
+    private void OnCarLaunched(float speed)
     {
-        _targetPosition = new Vector2(_targetPosition.x, _targetPosition.y + stepSize);
+        _speed = speed;
+    }
+
+    private void OnCarStopped()
+    {
+        _speed = _startSpeed;
     }
 }
