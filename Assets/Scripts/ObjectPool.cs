@@ -7,7 +7,7 @@ public class ObjectPool : MonoBehaviour
 {
     [SerializeField] private GameObject _container;
     [SerializeField] private int _capacity;
-    [SerializeField] private GameObject _template;
+    [SerializeField] private GameObject[] _templates;
     [SerializeField] private Transform[] _spawnPoints;
     [SerializeField] private float _spawnRate;
 
@@ -16,7 +16,7 @@ public class ObjectPool : MonoBehaviour
     
     private void Start()
     {
-        Initialize(_template);
+        Initialize(_templates);
     }
 
     private void Update()
@@ -42,13 +42,19 @@ public class ObjectPool : MonoBehaviour
         enemy.transform.position = spawnPoint;
     }
 
-    private void Initialize(GameObject prefab)
+    private void Initialize(GameObject[] templates)
     {
+        int enemyTemplateIndex = 0;
+
         for (int i = 0; i < _capacity; i++)
         {
-            GameObject spawned = Instantiate(prefab, _container.transform);
+            //int enemyTemplateIndex = Random.Range(0, templates.Length);
+            if (enemyTemplateIndex >= templates.Length)
+                enemyTemplateIndex = 0;
 
+            GameObject spawned = Instantiate(templates[enemyTemplateIndex], _container.transform);
             spawned.SetActive(false);
+            enemyTemplateIndex++;
 
             _pool.Add(spawned);
         }

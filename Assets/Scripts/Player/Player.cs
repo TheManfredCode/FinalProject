@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
             Die();
     }
 
-    private void Die()
+    public void Die()
     {
         Debug.Log("pd");
     }

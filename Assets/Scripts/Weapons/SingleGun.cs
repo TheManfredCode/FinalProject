@@ -14,6 +14,7 @@ public class SingleGun : Weapon
     {
         if (IsReloaded)
         {
+            ShootAnimator.Play(ShootAnimationName);
             Instantiate(Bullet, ShootPoint.position, Quaternion.identity);
             StartCoroutine(Reload());
         }

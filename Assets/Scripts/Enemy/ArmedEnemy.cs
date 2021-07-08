@@ -9,9 +9,15 @@ public class ArmedEnemy : Enemy
     [SerializeField] private int _shotCount;
     [SerializeField] private float _fireRate;
     [SerializeField] private float _dischargeRate;
+    [SerializeField] private float _firstDischargeTime;
 
-    private float _elapsedTime = 0;
+    private float _elapsedTime;
     private WaitForSeconds _reloadTime;
+
+    private void OnEnable()
+    {
+        _elapsedTime = _dischargeRate / _firstDischargeTime;
+    }
 
     private void Start()
     {

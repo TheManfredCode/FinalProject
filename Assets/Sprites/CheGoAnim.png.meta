@@ -1,0 +1,372 @@
+fileFormatVersion: 2
+guid: 3dcd044f66f501a4885d495d28da29d9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -916131697176778414
+    second: CheGoAnim_0
+  - first:
+      213: -4205868256777328410
+    second: CheGoAnim_1
+  - first:
+      213: 63170165084686000
+    second: CheGoAnim_2
+  - first:
+      213: -6093572219942570939
+    second: CheGoAnim_3
+  - first:
+      213: 7070729416782898251
+    second: CheGoAnim_4
+  - first:
+      213: -4798651022992590728
+    second: CheGoAnim_5
+  - first:
+      213: 7091377464693690000
+    second: CheGoAnim_6
+  - first:
+      213: -132183798172874488
+    second: CheGoAnim_7
+  - first:
+      213: -2334204416290705957
+    second: CheGoAnim_8
+  - first:
+      213: -7754186466997569195
+    second: CheGoAnim_9
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: CheGoAnim_0
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 116
+        width: 43
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5866508, y: 0.3913246}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2596d46431f3943f0800000000000000
+      internalID: -916131697176778414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CheGoAnim_1
+      rect:
+        serializedVersion: 2
+        x: 389
+        y: 114
+        width: 36
+        height: 62
+      alignment: 9
+      pivot: {x: 0.62362415, y: 0.41987067}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e822b6aa11c1a5c0800000000000000
+      internalID: -4205868256777328410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CheGoAnim_2
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 114
+        width: 35
+        height: 58
+      alignment: 9
+      pivot: {x: 0.61237097, y: 0.457172}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b686423eec60e000800000000000000
+      internalID: 63170165084686000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CheGoAnim_3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 5
+        width: 35
+        height: 60
+      alignment: 9
+      pivot: {x: 0.6077497, y: 0.47530758}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5447221e9584f6ba0800000000000000
+      internalID: -6093572219942570939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CheGoAnim_4
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 5
+        width: 35
+        height: 61
+      alignment: 9
+      pivot: {x: 0.6126216, y: 0.45849398}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b44ef3631f6402260800000000000000
+      internalID: 7070729416782898251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CheGoAnim_5
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 9
+        width: 43
+        height: 60
+      alignment: 9
+      pivot: {x: 0.5483895, y: 0.39742863}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8783675a154c76db0800000000000000
+      internalID: -4798651022992590728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CheGoAnim_6
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 8
+        width: 39
+        height: 61
+      alignment: 9
+      pivot: {x: 0.6011, y: 0.41505063}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09e074f7b32a96260800000000000000
+      internalID: 7091377464693690000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CheGoAnim_7
+      rect:
+        serializedVersion: 2
+        x: 324
+        y: 5
+        width: 35
+        height: 58
+      alignment: 9
+      pivot: {x: 0.6192941, y: 0.4860672}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80908d039836a2ef0800000000000000
+      internalID: -132183798172874488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CheGoAnim_8
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 5
+        width: 35
+        height: 60
+      alignment: 9
+      pivot: {x: 0.58850884, y: 0.47755235}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdd28d5537d3b9fd0800000000000000
+      internalID: -2334204416290705957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CheGoAnim_9
+      rect:
+        serializedVersion: 2
+        x: 455
+        y: 5
+        width: 35
+        height: 61
+      alignment: 9
+      pivot: {x: 0.5850124, y: 0.4569676}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 559f770ed78936490800000000000000
+      internalID: -7754186466997569195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

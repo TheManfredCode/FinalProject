@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 8384000119146530743}
   - component: {fileID: 8384000119146530728}
   - component: {fileID: 8384000119146530729}
+  - component: {fileID: -3304464516343793415}
   m_Layer: 0
-  m_Name: ArmedEnemy
+  m_Name: MPgunner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: db750325989564987a34393247d883b4, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.54949003, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -98,12 +99,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 1
   _health: 2
-  _reward: {fileID: 0}
+  _reward: {fileID: 468948595239598906, guid: ac003f9a500d3174fbc5563c1255206c, type: 3}
   _bullet: {fileID: 2558716760946537016, guid: bda2ea8697149e44696cf052e280a058, type: 3}
   _shootPoint: {fileID: 8384000120244360073}
-  _shotCount: 3
-  _fireRate: 0.2
+  _shotCount: 4
+  _fireRate: 0.15
   _dischargeRate: 4
+  _firstDischargeTime: 1.2
+--- !u!61 &-3304464516343793415
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8384000119146530730}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &8384000120244360074
 GameObject:
   m_ObjectHideFlags: 0

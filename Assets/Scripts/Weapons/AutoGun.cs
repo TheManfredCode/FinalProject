@@ -8,6 +8,7 @@ public class AutoGun : Weapon
     {
         while (true)
         {
+            ShootAnimator.Play(ShootAnimationName);
             Instantiate(Bullet, ShootPoint.position, Quaternion.identity);
             yield return ReloadTime;
         }
