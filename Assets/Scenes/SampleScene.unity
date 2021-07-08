@@ -324,6 +324,8 @@ MonoBehaviour:
   _startWeapons:
   - {fileID: 8501692669245655219, guid: 194fd2fd535c4c948a41b3dbdb93e4d2, type: 3}
   - {fileID: 8459614754756998524, guid: 2744568749072e2479f65defa216559d, type: 3}
+  - {fileID: 7734747047053308314, guid: 562fefa09061bed43bac6feb717ea76b, type: 3}
+  - {fileID: 8233392506569744409, guid: 413e9dd71bbd2e94e93b8f9b2aef9669, type: 3}
   _weaponContainer: {fileID: 2061145314}
 --- !u!114 &275319303
 MonoBehaviour:

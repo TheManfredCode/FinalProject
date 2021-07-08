@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 4654571456183859319, guid: e4172834497d93940a2889031ca5c7ed, type: 3}
-  FireRate: 1
+  FireRate: 0.6
   ShootPoint: {fileID: 9113803558584431212}
   ShootAnimator: {fileID: 7765886083519624289}
   ShootAnimationName: Shoot
