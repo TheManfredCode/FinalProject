@@ -27,8 +27,8 @@ public class DriveState : State
         _playerStartColor = _playerSprite.color;
         _playerSprite.color = new Color(1, 1, 1, 0);
 
-        PlayerInput.ChangeShooter(_carShooter);
         _carObject.SetActive(true);
+        PlayerInput.SetShooter(_carShooter);
 
         _car.Stopped += OnFuelExpired;
     }

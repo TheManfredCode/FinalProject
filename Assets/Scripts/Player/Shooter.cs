@@ -1,48 +1,65 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Shooter : MonoBehaviour
 {
-    [SerializeField] private GameObject[] _startWeapons;
+    [SerializeField] private Weapon[] _startWeapons;
     [SerializeField] private Transform _weaponContainer;
 
-    private List<GameObject> _weapons = new List<GameObject>();
+    private List<Weapon> _weapons = new List<Weapon>();
     private int _currentWeaponId;
     private Weapon _currentWeapon;
 
     public Weapon CurrentWeapon => _currentWeapon;
 
-    private void Start()
+    public event UnityAction WeaponSwitched;
+
+    private void Awake()
     {
         InitializeWeapons();
     }
 
     public void SwitchWeapon()
     {
-        _weapons[_currentWeaponId].SetActive(false);
+        _weapons[_currentWeaponId].gameObject.SetActive(false);
 
         if (_currentWeaponId == _weapons.Count - 1)
             _currentWeaponId = 0;
         else
             _currentWeaponId++;
 
-        _weapons[_currentWeaponId].SetActive(true);
+        _weapons[_currentWeaponId].gameObject.SetActive(true);
         _currentWeapon = _weapons[_currentWeaponId].GetComponent<Weapon>();
+
+        WeaponSwitched?.Invoke();
+    }
+
+    public void ChangeWeapon(Weapon weapon)
+    {
+        Destroy(_currentWeapon.gameObject);
+
+        _weapons[_currentWeaponId] = Instantiate(weapon, _weaponContainer);
+
+        _weapons[_currentWeaponId].gameObject.SetActive(true);
+        _currentWeapon = _weapons[_currentWeaponId];
+
+        WeaponSwitched?.Invoke();
     }
 
     private void InitializeWeapons()
     {
         _currentWeaponId = 0;
 
-        foreach (var weapon in _startWeapons)
+        foreach (Weapon weapon in _startWeapons)
         {
-            GameObject instantiatedWeapon = Instantiate(weapon, _weaponContainer);
+            Weapon instantiatedWeapon = Instantiate(weapon, _weaponContainer);
             _weapons.Add(instantiatedWeapon);
-            instantiatedWeapon.SetActive(false);
+            instantiatedWeapon.gameObject.SetActive(false);
         }
 
-        _weapons[_currentWeaponId].SetActive(true);
-        _currentWeapon = _weapons[_currentWeaponId].GetComponent<Weapon>();
+        _weapons[_currentWeaponId].gameObject.SetActive(true);
+        _currentWeapon = _weapons[_currentWeaponId];
     }
 }

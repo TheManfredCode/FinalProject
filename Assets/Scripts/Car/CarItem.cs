@@ -11,5 +11,9 @@ public class CarItem : MonoBehaviour
             stateSwitcher.SwitchState(driveState);
             Destroy(gameObject);
         }
+        if(collision.TryGetComponent(out Edge edge))
+        {
+            Destroy(gameObject);
+        }
     }
 }

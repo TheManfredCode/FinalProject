@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Player))]
 [RequireComponent(typeof(PlayerMover))]
@@ -12,12 +13,28 @@ public class PlayerInput : MonoBehaviour
     private Shooter _shooter;
     private Coroutine _shootCorutine;
 
+    public event UnityAction<Shooter> ShooterChanged;
+
     private void Start()
     {
         _player = GetComponent<Player>();
         _mover = GetComponent<PlayerMover>();
-        _shooter = GetComponent<Shooter>();
+
+        SetShooter(GetComponent<Shooter>());
     }
+
+    private void OnEnable()
+    {
+        if (_shooter != null)
+            _shooter.WeaponSwitched += OnWeaponSwitched;
+    }
+
+    private void OnDisable()
+    {
+        if (_shooter != null)
+            _shooter.WeaponSwitched -= OnWeaponSwitched;
+    }
+
 
     private void Update()
     {
@@ -40,10 +57,22 @@ public class PlayerInput : MonoBehaviour
             StopCoroutine(_shootCorutine);
     }
 
-    public void ChangeShooter(Shooter shooter)
+    public void SetShooter(Shooter shooter)
     {
-        _shooter = shooter;
+        if(_shooter != null)
+            _shooter.WeaponSwitched -= OnWeaponSwitched;
 
+        _shooter = shooter;
+        _shooter.WeaponSwitched += OnWeaponSwitched;
+
+        if (_shootCorutine != null)
+            StopCoroutine(_shootCorutine);
+
+        ShooterChanged?.Invoke(_shooter);
+    }
+
+    private void OnWeaponSwitched()
+    {
         if (_shootCorutine != null)
             StopCoroutine(_shootCorutine);
     }

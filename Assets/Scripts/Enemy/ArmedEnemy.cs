@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ArmedEnemy : Enemy
 {
@@ -10,9 +11,12 @@ public class ArmedEnemy : Enemy
     [SerializeField] private float _fireRate;
     [SerializeField] private float _dischargeRate;
     [SerializeField] private float _firstDischargeTime;
+    [SerializeField] private UnityEvent _shooted;
 
     private float _elapsedTime;
     private WaitForSeconds _reloadTime;
+
+    public event UnityAction Shooted;
 
     private void OnEnable()
     {
@@ -39,8 +43,14 @@ public class ArmedEnemy : Enemy
     {
         for (int i = 0; i < _shotCount; i++)
         {
-            Instantiate(_bullet, _shootPoint.position, Quaternion.identity);
+            SingleShot();
             yield return _reloadTime;
         }
+    }
+
+    private void SingleShot()
+    {
+        Instantiate(_bullet, _shootPoint.position, Quaternion.identity);
+        Shooted?.Invoke();
     }
 }

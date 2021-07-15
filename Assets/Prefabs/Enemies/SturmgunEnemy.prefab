@@ -40,8 +40,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5808962242516664610}
   - component: {fileID: 5808962242516664613}
+  - component: {fileID: -4654335703923688427}
   - component: {fileID: 5808962242516664612}
   - component: {fileID: -4168796850287380589}
+  - component: {fileID: 606723482543657009}
   m_Layer: 0
   m_Name: SturmgunEnemy
   m_TagString: Untagged
@@ -115,6 +117,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &-4654335703923688427
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5808962242516664615}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &5808962242516664612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,8 +149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _health: 2
+  _health: 35
   _reward: {fileID: 468948595239598906, guid: ac003f9a500d3174fbc5563c1255206c, type: 3}
+  _scoreForDeath: 1
   _bullet: {fileID: 4325704901966198254, guid: 27b433fe05f900b47b183104b3d06882, type: 3}
   _shootPoint: {fileID: 5808962242265101204}
   _shotCount: 3
@@ -162,3 +184,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.8828125}
   m_EdgeRadius: 0
+--- !u!114 &606723482543657009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5808962242516664615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90fa66ef3e5daa14ebbfc6b759dea774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shootAnimationName: 

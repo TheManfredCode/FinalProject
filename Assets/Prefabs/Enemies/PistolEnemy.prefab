@@ -10,8 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3662562127634758841}
   - component: {fileID: 3662562127634758840}
+  - component: {fileID: 8638381987031276670}
   - component: {fileID: 3662562127634758842}
   - component: {fileID: -9062852678129486422}
+  - component: {fileID: 5454538545128520944}
   m_Layer: 0
   m_Name: PistolEnemy
   m_TagString: Untagged
@@ -85,6 +87,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &8638381987031276670
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3662562127634758847}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &3662562127634758842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,8 +119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 1
-  _health: 2
+  _health: 10
   _reward: {fileID: 468948595239598906, guid: ac003f9a500d3174fbc5563c1255206c, type: 3}
+  _scoreForDeath: 1
   _bullet: {fileID: 2558716760946537016, guid: bda2ea8697149e44696cf052e280a058, type: 3}
   _shootPoint: {fileID: 3662562128612013683}
   _shotCount: 1
@@ -132,6 +154,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5454538545128520944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3662562127634758847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90fa66ef3e5daa14ebbfc6b759dea774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shootAnimationName: 
 --- !u!1 &3662562128612013682
 GameObject:
   m_ObjectHideFlags: 0

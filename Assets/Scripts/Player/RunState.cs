@@ -10,10 +10,12 @@ public class RunState : State
     private void Start()
     {
         _playerShooter = GetComponent<Shooter>();
+        PlayerInput.SetShooter(_playerShooter);
     }
 
     private void OnEnable()
     {
-        PlayerInput.ChangeShooter(_playerShooter);
+        if(_playerShooter != null)
+            PlayerInput.SetShooter(_playerShooter);
     }
 }

@@ -13,8 +13,10 @@ public class ObjectPool : MonoBehaviour
 
     private List<GameObject> _pool = new List<GameObject>();
     private float _elapsedTime = 0;
+
+    protected List<GameObject> Pool => _pool;
     
-    private void Start()
+    private void Awake()
     {
         Initialize(_templates);
     }
@@ -25,36 +27,35 @@ public class ObjectPool : MonoBehaviour
 
         if (_elapsedTime >= _spawnRate)
         {
-            if (TryGetObject(out GameObject enemy))
+            if (TryGetObject(out GameObject poolObject))
             {
                 _elapsedTime = 0;
 
                 int spawnPoitNumber = Random.Range(0, _spawnPoints.Length);
 
-                SetEnemy(enemy, _spawnPoints[spawnPoitNumber].position);
+                SetObject(poolObject, _spawnPoints[spawnPoitNumber].position);
             }
         }
     }
 
-    private void SetEnemy(GameObject enemy, Vector3 spawnPoint)
+    private void SetObject(GameObject poolObject, Vector3 spawnPoint)
     {
-        enemy.SetActive(true);
-        enemy.transform.position = spawnPoint;
+        poolObject.SetActive(true);
+        poolObject.transform.position = spawnPoint;
     }
 
     private void Initialize(GameObject[] templates)
     {
-        int enemyTemplateIndex = 0;
+        int objectTemplateIndex = 0;
 
         for (int i = 0; i < _capacity; i++)
         {
-            //int enemyTemplateIndex = Random.Range(0, templates.Length);
-            if (enemyTemplateIndex >= templates.Length)
-                enemyTemplateIndex = 0;
+            if (objectTemplateIndex >= templates.Length)
+                objectTemplateIndex = 0;
 
-            GameObject spawned = Instantiate(templates[enemyTemplateIndex], _container.transform);
+            GameObject spawned = Instantiate(templates[objectTemplateIndex], _container.transform);
             spawned.SetActive(false);
-            enemyTemplateIndex++;
+            objectTemplateIndex++;
 
             _pool.Add(spawned);
         }

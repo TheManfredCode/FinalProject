@@ -8,5 +8,8 @@ public class Obstacle : MonoBehaviour
     {
         if (collision.TryGetComponent(out Player player))
             player.Die();
+
+        if(collision.TryGetComponent(out Edge edge))
+            gameObject.SetActive(false);
     }
 }
