@@ -5,16 +5,17 @@ using UnityEngine;
 [RequireComponent(typeof(StateSwitcher))]
 [RequireComponent(typeof(RunState))]
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(BoxCollider2D))]
 public class DriveState : State
 {
     [SerializeField] private Car _car;
     [SerializeField] private Shooter _carShooter;
     [SerializeField] private GameObject _carInterface;
-
     [SerializeField] private AudioSource _audioSource;
     [SerializeField] private AudioClip _driveStateClip;
 
     private SpriteRenderer _playerSprite;
+    private BoxCollider2D _playerCollider;
     private Color _playerStartColor;
     private StateSwitcher _stateSwitcher;
     private RunState _runState;
@@ -28,6 +29,8 @@ public class DriveState : State
     private void OnEnable()
     {
         _playerSprite = GetComponent<SpriteRenderer>();
+        _playerCollider = GetComponent<BoxCollider2D>();
+        _playerCollider.enabled = false;
 
         _playerStartColor = _playerSprite.color;
         _playerSprite.color = new Color(1, 1, 1, 0);
@@ -46,6 +49,7 @@ public class DriveState : State
         _audioSource.Stop();
 
         _playerSprite.color = _playerStartColor;
+        _playerCollider.enabled = true;
         _car.gameObject.SetActive(false);
         _carInterface.SetActive(false);
 

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(RawImage))]
 public class Parallax : MonoBehaviour
 {
+    [SerializeField] private Player _player;
     [SerializeField] private PlayerMover _playerMover;
     [SerializeField] private float _speed;
 
@@ -22,11 +23,13 @@ public class Parallax : MonoBehaviour
     private void OnEnable()
     {
         _playerMover.SpeedChanged += OnSpeedChanged;
+        _player.TopScoreCollected += OnTopScoreCollected;
     }
 
     private void OnDisable()
     {
         _playerMover.SpeedChanged -= OnSpeedChanged;
+        _player.TopScoreCollected -= OnTopScoreCollected;
     }
 
     private void Update()
@@ -39,5 +42,10 @@ public class Parallax : MonoBehaviour
     private void OnSpeedChanged(float oldSpeed, float newSpeed)
     {
         _currentSpeed = _currentSpeed * (newSpeed / oldSpeed);
+    }
+
+    private void OnTopScoreCollected()
+    {
+        _currentSpeed = 0;
     }
 }

@@ -25,6 +25,8 @@ public class Shop : MonoBehaviour
         foreach (SellWeaponView sellWeaponView in sellWeaponViews)
         {
             sellWeaponView.Restart();
+            sellWeaponView.BuyButtonClicked += OnBuyButtonClicked;
+            sellWeaponView.EquipButtonClicked += OnEquipButtonClicked;
         }
     }
 
