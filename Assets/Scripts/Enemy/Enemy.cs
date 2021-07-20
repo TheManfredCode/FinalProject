@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour
     private int _currentHealth;
     private Player _target;
 
+    public Player Target => _target;
+
     private void OnEnable()
     {
         _currentHealth = _health;
@@ -53,7 +55,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void Die()
+    protected virtual void Die()
     {
         gameObject.SetActive(false);
 

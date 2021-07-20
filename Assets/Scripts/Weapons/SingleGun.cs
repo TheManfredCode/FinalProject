@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class SingleGun : Weapon
 {
-    private void OnEnable()
-    {
-        if(IsReloaded == false)
-            StartCoroutine(Reload());
-    }
-
     public override IEnumerator Shoot()
     {
         if (IsReloaded)
@@ -17,7 +11,6 @@ public class SingleGun : Weapon
             SingleShot();
             StartCoroutine(Reload());
         }
-
         yield return null;
     }
 }

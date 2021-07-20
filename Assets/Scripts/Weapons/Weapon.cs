@@ -7,6 +7,7 @@ public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] private string _label;
     [SerializeField] private int _price;
+    [SerializeField] private UnityEvent _shooted;
 
     [SerializeField] protected GameObject Bullet;
     [SerializeField] protected float FireRate;
@@ -14,7 +15,7 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] protected Animator ShootAnimator;
     [SerializeField] protected string ShootAnimationName;
 
-    [SerializeField] private UnityEvent _shooted;
+    protected UnityEvent Shooted => _shooted;
 
     protected WaitForSeconds ReloadTime;
     protected bool IsReloaded = true;
@@ -22,7 +23,11 @@ public abstract class Weapon : MonoBehaviour
     public string Label => _label;
     public int Price => _price;
 
-    public event UnityAction Shooted;
+    private void OnEnable()
+    {
+        if (IsReloaded == false)
+            StartCoroutine(Reload());
+    }
 
     private void Start()
     {
@@ -34,7 +39,6 @@ public abstract class Weapon : MonoBehaviour
     protected void SingleShot()
     {
         Instantiate(Bullet, ShootPoint.position, Quaternion.identity);
-        Shooted?.Invoke();
         _shooted.Invoke();
     }
 

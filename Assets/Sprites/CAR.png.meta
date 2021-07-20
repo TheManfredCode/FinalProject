@@ -17,9 +17,6 @@ TextureImporter:
   - first:
       213: 681917452511995408
     second: CAR_4
-  - first:
-      213: -9087753071050321096
-    second: CAR_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -139,7 +136,7 @@ TextureImporter:
         x: 18
         y: 411
         width: 267
-        height: 87
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,7 +157,7 @@ TextureImporter:
         x: 18
         y: 301
         width: 267
-        height: 86
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,7 +178,7 @@ TextureImporter:
         x: 17
         y: 201
         width: 268
-        height: 85
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,7 +199,7 @@ TextureImporter:
         x: 17
         y: 104
         width: 268
-        height: 83
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,7 +220,7 @@ TextureImporter:
         x: 17
         y: 1
         width: 268
-        height: 82
+        height: 77
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,27 +230,6 @@ TextureImporter:
       bones: []
       spriteID: 016ed136f48a67900800000000000000
       internalID: 681917452511995408
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CAR_5
-      rect:
-        serializedVersion: 2
-        x: 329
-        y: 12
-        width: 45
-        height: 30
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 83394991bb0d1e180800000000000000
-      internalID: -9087753071050321096
       vertices: []
       indices: 
       edges: []

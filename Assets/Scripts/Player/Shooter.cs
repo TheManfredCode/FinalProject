@@ -31,7 +31,7 @@ public class Shooter : MonoBehaviour
             _currentWeaponId++;
 
         _weapons[_currentWeaponId].gameObject.SetActive(true);
-        _currentWeapon = _weapons[_currentWeaponId].GetComponent<Weapon>();
+        _currentWeapon = _weapons[_currentWeaponId];
 
         WeaponSwitched?.Invoke();
     }
@@ -44,6 +44,17 @@ public class Shooter : MonoBehaviour
 
         _weapons[_currentWeaponId].gameObject.SetActive(true);
         _currentWeapon = _weapons[_currentWeaponId];
+
+        WeaponSwitched?.Invoke();
+    }
+
+    public void Restart()
+    {
+        foreach (Weapon weapon in _weapons)
+            Destroy(weapon.gameObject);
+
+        _weapons.Clear();
+        InitializeWeapons();
 
         WeaponSwitched?.Invoke();
     }

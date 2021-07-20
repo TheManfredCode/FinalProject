@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Boss))]
 public class BossDropper : MonoBehaviour
 {
-    [SerializeField] private Transform _target;
     [SerializeField] private Bomb _bombTemplate;
     [SerializeField] private RocketMover _rocketTemplate;
     [SerializeField] private int _rocketDropChance = 5;
     [SerializeField] private float _dropRate;
     [SerializeField] private Transform _dropPoint;
 
+    private Boss _boss;
+    private Transform _target;
     private float _elapsedTime = 0;
     private int _maxDropChance = 100;
+
+    private void Start()
+    {
+        _boss = GetComponent<Boss>();
+        _target = _boss.Target.transform;
+    }
 
     private void Update()
     {

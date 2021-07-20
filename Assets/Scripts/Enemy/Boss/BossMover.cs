@@ -15,6 +15,11 @@ public class BossMover : MonoBehaviour
     private float _targetPositionY;
     private float _elapsedTime = 0;
 
+    private void OnDisable()
+    {
+        _currentSpeed = 0;
+    }
+
     private void Update()
     {
         _elapsedTime += Time.deltaTime;
@@ -36,6 +41,11 @@ public class BossMover : MonoBehaviour
     public void Launch()
     {
         _currentSpeed = _speed;
+    }
+
+    public void Stop()
+    {
+        _currentSpeed = 0;
     }
 
     private bool TryMoveUp()

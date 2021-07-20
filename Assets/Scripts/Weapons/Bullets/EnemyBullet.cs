@@ -16,7 +16,12 @@ public class EnemyBullet : Bullet
             player.TakeDamage(Damage);
             Destroy(gameObject);
         }
-        else if(collision.TryGetComponent(out Edge edge))
+        if(collision.TryGetComponent(out Car car))
+        {
+            car.TakeDamage(Damage);
+            Destroy(gameObject);
+        }
+        if(collision.TryGetComponent(out Edge edge))
         {
             Destroy(gameObject);
         }

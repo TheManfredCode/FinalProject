@@ -38,6 +38,16 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
+    public void Restart()
+    {
+        _elapsedTime = 0;
+
+        foreach (var poolObject in _pool)
+        {
+            poolObject.SetActive(false);
+        }
+    }
+
     private void SetObject(GameObject poolObject, Vector3 spawnPoint)
     {
         poolObject.SetActive(true);

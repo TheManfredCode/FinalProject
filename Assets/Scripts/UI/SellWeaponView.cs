@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class SellWeaponView : MonoBehaviour
 {
     [SerializeField] private TMP_Text _label;
+    [SerializeField] private Image _image;
     [SerializeField] private Button _buyButton;
     [SerializeField] private Button _equipButton;
 
@@ -40,8 +41,9 @@ public class SellWeaponView : MonoBehaviour
         _equipButton.gameObject.SetActive(true);
     }
 
-    public void Equipping()
+    public void Restart()
     {
+        _buyButton.gameObject.SetActive(true);
         _equipButton.gameObject.SetActive(false);
     }
 

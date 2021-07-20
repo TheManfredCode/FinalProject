@@ -18,6 +18,16 @@ public class Shop : MonoBehaviour
         Initialize();
     }
 
+    public void Restart()
+    {
+        SellWeaponView[] sellWeaponViews = _weaponContainer.GetComponentsInChildren<SellWeaponView>();
+
+        foreach (SellWeaponView sellWeaponView in sellWeaponViews)
+        {
+            sellWeaponView.Restart();
+        }
+    }
+
     private void Initialize()
     {
         for (int i = 0; i < _weapons.Length; i++)
@@ -42,7 +52,6 @@ public class Shop : MonoBehaviour
     private void OnEquipButtonClicked(Weapon weapon, SellWeaponView weaponView)
     {
         _playerShooter.ChangeWeapon(weapon);
-        weaponView.Equipping();
         weaponView.EquipButtonClicked -= OnEquipButtonClicked;
     }
 }

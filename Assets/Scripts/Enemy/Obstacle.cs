@@ -9,7 +9,7 @@ public class Obstacle : MonoBehaviour
         if (collision.TryGetComponent(out Player player))
             player.Die();
 
-        if(collision.TryGetComponent(out Edge edge))
+        if(collision.TryGetComponent(out Car car) || collision.TryGetComponent(out Edge edge))
             gameObject.SetActive(false);
     }
 }

@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Shooter))]
 public class RunState : State
 {
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _runStateClip;
+
     private Shooter _playerShooter;
 
     private void Start()
@@ -17,5 +20,12 @@ public class RunState : State
     {
         if(_playerShooter != null)
             PlayerInput.SetShooter(_playerShooter);
+
+        _audioSource.PlayOneShot(_runStateClip);
+    }
+
+    private void OnDisable()
+    {
+        _audioSource.Stop();
     }
 }

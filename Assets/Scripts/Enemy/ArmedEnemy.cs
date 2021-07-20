@@ -16,8 +16,6 @@ public class ArmedEnemy : Enemy
     private float _elapsedTime;
     private WaitForSeconds _reloadTime;
 
-    public event UnityAction Shooted;
-
     private void OnEnable()
     {
         _elapsedTime = _dischargeRate / _firstDischargeTime;
@@ -51,6 +49,6 @@ public class ArmedEnemy : Enemy
     private void SingleShot()
     {
         Instantiate(_bullet, _shootPoint.position, Quaternion.identity);
-        Shooted?.Invoke();
+        _shooted?.Invoke();
     }
 }

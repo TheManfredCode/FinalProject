@@ -27,6 +27,9 @@ public class PlayerInput : MonoBehaviour
     {
         if (_shooter != null)
             _shooter.WeaponSwitched += OnWeaponSwitched;
+
+        if (_shootCorutine != null)
+            StopCoroutine(_shootCorutine);
     }
 
     private void OnDisable()

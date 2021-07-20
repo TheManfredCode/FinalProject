@@ -7,6 +7,7 @@ public class StateSwitcher : MonoBehaviour
     [SerializeField] private State _startState;
 
     private State _currentState;
+    private Player _player;
 
     private void Start()
     {

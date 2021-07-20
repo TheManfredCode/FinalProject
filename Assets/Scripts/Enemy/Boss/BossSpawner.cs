@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class BossSpawner : MonoBehaviour
 {
-    [SerializeField] private Player _player;
-    [SerializeField] private ObjectPool[] _objectPools;
-    [SerializeField] private BossLauncher _bossTemplate;
+    [SerializeField] private Boss _boss;
+    [SerializeField] private Player _target;
     [SerializeField] private Transform _spawnPoint;
+    [SerializeField] private ObjectPool[] _objectPools;
 
     private void OnEnable()
     {
-        _player.TopScoreCollected += OnTopScoreCollected;
+        _target.TopScoreCollected += OnTopScoreCollected;
     }
 
     private void OnDisable()
     {
-        _player.TopScoreCollected -= OnTopScoreCollected;
+        _target.TopScoreCollected -= OnTopScoreCollected;
     }
 
     private void OnTopScoreCollected()
     {
-        BossLauncher boss = Instantiate(_bossTemplate, _spawnPoint.position, Quaternion.identity);
-        boss.SetTarget(_player.transform);
+        _boss.gameObject.SetActive(true);
+        _boss.transform.position = _spawnPoint.position;
+        _boss.SetTarget(_target);
 
         foreach (var objectPool in _objectPools)
         {
