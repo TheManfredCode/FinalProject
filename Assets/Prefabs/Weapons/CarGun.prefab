@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Car gun
+  _image: {fileID: 0}
   _price: 0
   _shooted:
     m_PersistentCalls:
@@ -76,7 +77,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  Bullet: {fileID: 114950699464154978, guid: 4cd80003d3ef6c84cbcdfc5b95ee9aa8, type: 3}
+  Bullet: {fileID: 7695317545927795752, guid: 4cd80003d3ef6c84cbcdfc5b95ee9aa8, type: 3}
   FireRate: 0.1
   ShootPoint: {fileID: 1243793958873454169}
   ShootAnimator: {fileID: 1500583248}
@@ -163,7 +164,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: efb00ee314addf341ad9f8d14df7af32, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0

@@ -22,6 +22,7 @@ public class BossDeath : MonoBehaviour
     private PlayerMover _playerMover;
     private Animator _animator;
     private WaitForSeconds _playAnimationTime;
+    private BoxCollider2D _playerCollider;
 
     private void Start()
     {
@@ -35,6 +36,7 @@ public class BossDeath : MonoBehaviour
 
         _playerInput = _boss.Target.gameObject.GetComponent<PlayerInput>();
         _playerMover = _boss.Target.gameObject.GetComponent<PlayerMover>();
+        _playerCollider = _playerMover.gameObject.GetComponent<BoxCollider2D>();
 
         _playAnimationTime = new WaitForSeconds(_deathDuration);
     }
@@ -58,7 +60,7 @@ public class BossDeath : MonoBehaviour
         _playerMover.Stop();
         _playerInput.enabled = false;
 
-        _boss.Target.enabled = false;
+        _playerCollider.enabled = false;
         _boss.enabled = false;
         _bossMover.enabled = false;
 

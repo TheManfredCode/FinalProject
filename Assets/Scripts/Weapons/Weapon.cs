@@ -6,21 +6,23 @@ using UnityEngine.Events;
 public abstract class Weapon : MonoBehaviour
 {
     [SerializeField] private string _label;
+    [SerializeField] private Sprite _image;
     [SerializeField] private int _price;
     [SerializeField] private UnityEvent _shooted;
 
-    [SerializeField] protected GameObject Bullet;
+    [SerializeField] protected PlayerBullet Bullet;
     [SerializeField] protected float FireRate;
     [SerializeField] protected Transform ShootPoint;
     [SerializeField] protected Animator ShootAnimator;
     [SerializeField] protected string ShootAnimationName;
 
+    protected string FireType;
     protected UnityEvent Shooted => _shooted;
-
     protected WaitForSeconds ReloadTime;
     protected bool IsReloaded = true;
 
     public string Label => _label;
+    public Sprite Image => _image;
     public int Price => _price;
 
     private void OnEnable()
@@ -36,9 +38,15 @@ public abstract class Weapon : MonoBehaviour
 
     abstract public IEnumerator Shoot();
 
+    public string GetDescription()
+    {
+        string description = $"Описание :\n\nУрон : {Bullet.Damage}\nСкорость пули : {Bullet.Speed}\nрежим огня : {FireType}\nСкорострельность :{FireRate}";
+        return description;
+    }
+
     protected void SingleShot()
     {
-        Instantiate(Bullet, ShootPoint.position, Quaternion.identity);
+        Instantiate(Bullet.gameObject, ShootPoint.position, Quaternion.identity);
         _shooted.Invoke();
     }
 

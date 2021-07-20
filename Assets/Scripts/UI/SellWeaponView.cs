@@ -8,7 +8,9 @@ using UnityEngine.UI;
 public class SellWeaponView : MonoBehaviour
 {
     [SerializeField] private TMP_Text _label;
+    [SerializeField] private TMP_Text _description;
     [SerializeField] private Image _image;
+    [SerializeField] private TMP_Text _price;
     [SerializeField] private Button _buyButton;
     [SerializeField] private Button _equipButton;
 
@@ -32,7 +34,11 @@ public class SellWeaponView : MonoBehaviour
     public void Initialize(Weapon weapon)
     {
         _weapon = weapon;
+
         _label.text = weapon.Label;
+        _description.text = weapon.GetDescription();
+        _image.sprite = weapon.Image;
+        _price.text = weapon.Price.ToString();
     }
 
     public void Buying()

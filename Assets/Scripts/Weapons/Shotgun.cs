@@ -9,6 +9,11 @@ public class Shotgun : Weapon
 
     private Vector3 _startShootPosition;
 
+    private void Awake()
+    {
+        FireType = "SINGLE";
+    }
+
     public override IEnumerator Shoot()
     {
         if (IsReloaded)

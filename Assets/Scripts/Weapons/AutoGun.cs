@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class AutoGun : Weapon
 {
+    private void Awake()
+    {
+        FireType = "AUTO";
+    }
 
     public override IEnumerator Shoot()
     {

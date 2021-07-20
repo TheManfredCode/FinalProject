@@ -14,9 +14,9 @@ public class Enemy : MonoBehaviour
 
     public Player Target => _target;
 
-    private void OnEnable()
+    protected void OnEnable()
     {
-        _currentHealth = _health;
+        ResetHealth();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -53,6 +53,11 @@ public class Enemy : MonoBehaviour
             _target.TakeScore(_scoreForDeath);
             Die();
         }
+    }
+
+    protected void ResetHealth()
+    {
+        _currentHealth = _health;
     }
 
     protected virtual void Die()

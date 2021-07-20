@@ -16,8 +16,9 @@ public class ArmedEnemy : Enemy
     private float _elapsedTime;
     private WaitForSeconds _reloadTime;
 
-    private void OnEnable()
+    private new void OnEnable()
     {
+        ResetHealth();
         _elapsedTime = _dischargeRate / _firstDischargeTime;
     }
 

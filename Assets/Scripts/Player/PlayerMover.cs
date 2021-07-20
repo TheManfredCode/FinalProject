@@ -19,7 +19,7 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private UnityEvent _jumpFinished;
     [SerializeField] private UnityEvent _stopped;
 
-    private float _currntSpeed;
+    private float _currentSpeed;
     private bool _isGrounded = true;
     private float _targetPositionY;
     private BoxCollider2D _collider;
@@ -27,8 +27,9 @@ public class PlayerMover : MonoBehaviour
     private Vector2 _startColliderOffset;
     private Player _player;
 
+    public event UnityAction<float, float> SpeedChanged;
     public bool IsGrounded => _isGrounded;
-    public float CurrentSpeed => _currntSpeed;
+    public float CurrentSpeed => _currentSpeed;
 
     private void OnEnable()
     {
@@ -48,7 +49,7 @@ public class PlayerMover : MonoBehaviour
         _jumpTimer = new WaitForSeconds(_jumpDuration);
         _jumpStarted?.Invoke();
 
-        _currntSpeed = _speed;
+        _currentSpeed = _speed;
         _startColliderOffset = _collider.offset;
 
         _jumpFinished?.Invoke();
@@ -58,7 +59,7 @@ public class PlayerMover : MonoBehaviour
 
     private void Update()
     {
-        transform.Translate(Vector3.right * _currntSpeed * Time.deltaTime);
+        transform.Translate(Vector3.right * _currentSpeed * Time.deltaTime);
 
         if (transform.position.y != _targetPositionY)
         {
@@ -93,7 +94,7 @@ public class PlayerMover : MonoBehaviour
 
     public void Stop()
     {
-        _currntSpeed = 0;
+        _currentSpeed = 0;
         _stopped?.Invoke();
     }
 
@@ -104,11 +105,13 @@ public class PlayerMover : MonoBehaviour
 
     private void OnCarLaunched(float speed)
     {
-        _currntSpeed = speed;
+        SpeedChanged?.Invoke(_currentSpeed, speed);
+        _currentSpeed = speed;
     }
 
     private void OnCarStopped()
     {
-        _currntSpeed = _speed;
+        SpeedChanged?.Invoke(_currentSpeed, _speed);
+        _currentSpeed = _speed;
     }
 }

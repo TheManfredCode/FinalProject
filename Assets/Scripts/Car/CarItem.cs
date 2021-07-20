@@ -9,11 +9,11 @@ public class CarItem : MonoBehaviour
         if(collision.TryGetComponent(out StateSwitcher stateSwitcher) && collision.TryGetComponent(out DriveState driveState))
         {
             stateSwitcher.SwitchState(driveState);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         if(collision.TryGetComponent(out Edge edge))
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

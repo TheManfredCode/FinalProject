@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Restart : MonoBehaviour
@@ -11,6 +12,7 @@ public class Restart : MonoBehaviour
     [SerializeField] private Shop _shop;
     [SerializeField] private Boss _boss;
     [SerializeField] private ObjectPool[] _objectPools;
+    [SerializeField] private UnityEvent _restarted;
 
     private void OnEnable()
     {
@@ -37,5 +39,7 @@ public class Restart : MonoBehaviour
         }
 
         _boss.gameObject.SetActive(false);
+
+        _restarted?.Invoke();
     }
 }

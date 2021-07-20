@@ -16,7 +16,7 @@ public class PlayerBullet : Bullet
             enemy.TakeDamage(Damage);
             Destroy(gameObject);
         }
-        else if (collision.TryGetComponent(out Edge edge))
+        if (collision.TryGetComponent(out Edge edge))
         {
             Destroy(gameObject);
         }

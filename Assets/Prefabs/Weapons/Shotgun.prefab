@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2408530018317867212, guid: 45b256dddeea9124fb453f8daf9f3018, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _label: Shotgun
+  _image: {fileID: -3353432765535576990, guid: 0f52ccb91599e0f408f0230130922ec3, type: 3}
   _price: 1
   _shooted:
     m_PersistentCalls:
@@ -146,7 +147,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  Bullet: {fileID: 8289351542918281370, guid: 0890cc582fd93f14899d51397f0b7ff9, type: 3}
+  Bullet: {fileID: 3552915680794380421, guid: 0890cc582fd93f14899d51397f0b7ff9, type: 3}
   FireRate: 1.5
   ShootPoint: {fileID: 5106993214690617212}
   ShootAnimator: {fileID: 714794182224866953}

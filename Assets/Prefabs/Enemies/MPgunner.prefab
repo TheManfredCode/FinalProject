@@ -118,8 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e54485585d5286428330106c45ea99e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _damage: 1
-  _health: 15
+  _damage: 5
+  _health: 25
   _reward: {fileID: 468948595239598906, guid: ac003f9a500d3174fbc5563c1255206c, type: 3}
   _scoreForDeath: 1
   _bullet: {fileID: 2558716760946537016, guid: bda2ea8697149e44696cf052e280a058, type: 3}
