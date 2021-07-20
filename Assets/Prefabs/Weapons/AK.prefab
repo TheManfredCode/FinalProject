@@ -104,7 +104,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 24
+  m_SortingOrder: 2
   m_Sprite: {fileID: -7651578999465136024, guid: 379aecd8ed71eee4ba922a4bc1d848a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _label: AK
   _image: {fileID: 5040538109789990674, guid: 0f52ccb91599e0f408f0230130922ec3, type: 3}
-  _price: 1
+  _price: 24
   _shooted:
     m_PersistentCalls:
       m_Calls:

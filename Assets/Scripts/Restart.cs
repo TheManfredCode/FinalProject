@@ -9,6 +9,8 @@ public class Restart : MonoBehaviour
     [SerializeField] private Button _button;
     [SerializeField] private CameraMover _cameraMover;
     [SerializeField] private Player _player;
+    [SerializeField] private StateSwitcher _stateSwitcher;
+    [SerializeField] private State _startState;
     [SerializeField] private Shop _shop;
     [SerializeField] private Boss _boss;
     [SerializeField] private ObjectPool[] _objectPools;
@@ -28,6 +30,8 @@ public class Restart : MonoBehaviour
     {
         _player.Restart();
         _player.gameObject.GetComponent<Shooter>().Restart();
+
+        _stateSwitcher.SwitchState(_startState);
 
         _cameraMover.Restart();
         _shop.Restart();

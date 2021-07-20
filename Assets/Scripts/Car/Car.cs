@@ -22,6 +22,7 @@ public class Car : MonoBehaviour
     {
         ResetStats();
         Launched?.Invoke(_carSpeed);
+        HealthChanged?.Invoke(_currentHealth, _health);
     }
 
     private void OnDisable()
