@@ -302,6 +302,7 @@ MonoBehaviour:
   _boss: {fileID: 1006691202}
   _objectPools:
   - {fileID: 1058553171}
+  - {fileID: 1829788319}
   _restarted:
     m_PersistentCalls:
       m_Calls:
