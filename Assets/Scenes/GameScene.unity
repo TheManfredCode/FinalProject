@@ -2590,10 +2590,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 275319299}
   _weapons:
-  - {fileID: 6330306324595275392, guid: 413e9dd71bbd2e94e93b8f9b2aef9669, type: 3}
   - {fileID: 7551226727301869193, guid: 194fd2fd535c4c948a41b3dbdb93e4d2, type: 3}
-  - {fileID: 1534095039101495173, guid: 562fefa09061bed43bac6feb717ea76b, type: 3}
+  - {fileID: 685910286947552524, guid: 856870382946de9429e28b644ce872dd, type: 3}
   - {fileID: 775900470387049260, guid: 2744568749072e2479f65defa216559d, type: 3}
+  - {fileID: 1534095039101495173, guid: 562fefa09061bed43bac6feb717ea76b, type: 3}
+  - {fileID: 6330306324595275392, guid: 413e9dd71bbd2e94e93b8f9b2aef9669, type: 3}
   _weaponViewTemplate: {fileID: 5587014365021415355, guid: 615ce438379462d48a7c47dcacfa0c00, type: 3}
   _weaponContainer: {fileID: 148197770}
 --- !u!1 &549041300
@@ -3133,8 +3134,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dac4e496beb837409458337d3309a46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 275319299}
+  _player: {fileID: 0}
   _playerMover: {fileID: 275319297}
+  _boss: {fileID: 1006691202}
   _speed: 0.15
 --- !u!114 &672196650
 MonoBehaviour:

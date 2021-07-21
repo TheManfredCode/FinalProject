@@ -8,6 +8,7 @@ public class Parallax : MonoBehaviour
 {
     [SerializeField] private Player _player;
     [SerializeField] private PlayerMover _playerMover;
+    [SerializeField] private Boss _boss;
     [SerializeField] private float _speed;
 
     private float _currentSpeed;
@@ -23,13 +24,13 @@ public class Parallax : MonoBehaviour
     private void OnEnable()
     {
         _playerMover.SpeedChanged += OnSpeedChanged;
-        _player.TopScoreCollected += OnTopScoreCollected;
+        _boss.Died += OnBossDied;
     }
 
     private void OnDisable()
     {
         _playerMover.SpeedChanged -= OnSpeedChanged;
-        _player.TopScoreCollected -= OnTopScoreCollected;
+        _boss.Died -= OnBossDied;
     }
 
     private void Update()
@@ -44,7 +45,7 @@ public class Parallax : MonoBehaviour
         _currentSpeed = _currentSpeed * (newSpeed / oldSpeed);
     }
 
-    private void OnTopScoreCollected()
+    private void OnBossDied()
     {
         _currentSpeed = 0;
     }
