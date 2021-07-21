@@ -9819,7 +9819,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damage: 10
-  _health: 200
+  _health: 400
   _reward: {fileID: 0}
   _scoreForDeath: 0
   _bullet: {fileID: 1982376545215101985, guid: ce9e8831593e91a449eef123837645c3, type: 3}
