@@ -1035,7 +1035,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _health: 100
-  _topScore: 1
+  _topScore: 100
   _died:
     m_PersistentCalls:
       m_Calls:
