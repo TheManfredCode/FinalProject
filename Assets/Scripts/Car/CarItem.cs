@@ -6,7 +6,7 @@ public class CarItem : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out CarSwitcher carSwitcher))
+        if(collision.TryGetComponent(out CarActivator carSwitcher))
         {
             carSwitcher.LaunchCar();
             gameObject.SetActive(false);

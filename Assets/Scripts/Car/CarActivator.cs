@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(PlayerInput))]
-public class CarSwitcher : MonoBehaviour
+public class CarActivator : MonoBehaviour
 {
     [SerializeField] private Car _car;
     [SerializeField] private Shooter _carShooter;
