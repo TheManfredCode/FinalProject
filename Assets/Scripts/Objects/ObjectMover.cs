@@ -5,10 +5,10 @@ using UnityEngine;
 public class ObjectMover : MonoBehaviour
 {
     [SerializeField] private Player _player;
-    [SerializeField] private float _xOffset;
+    [SerializeField] private float _offsetX;
 
     private void Update()
     {
-        transform.position = new Vector3(_player.transform.position.x + _xOffset, transform.position.y, transform.position.z);
+        transform.position = new Vector3(_player.transform.position.x + _offsetX, transform.position.y, transform.position.z);
     }
 }

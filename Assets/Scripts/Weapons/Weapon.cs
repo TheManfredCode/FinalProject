@@ -8,7 +8,6 @@ public abstract class Weapon : MonoBehaviour
     [SerializeField] private string _label;
     [SerializeField] private Sprite _image;
     [SerializeField] private int _price;
-    [SerializeField] private UnityEvent _shooted;
 
     [SerializeField] protected PlayerBullet Bullet;
     [SerializeField] protected float FireRate;
@@ -20,6 +19,8 @@ public abstract class Weapon : MonoBehaviour
     protected UnityEvent Shooted => _shooted;
     protected WaitForSeconds ReloadTime;
     protected bool IsReloaded = true;
+
+    [SerializeField] private UnityEvent _shooted;
 
     public string Label => _label;
     public Sprite Image => _image;

@@ -296,8 +296,7 @@ MonoBehaviour:
   _button: {fileID: 1655948012}
   _cameraMover: {fileID: 519420030}
   _player: {fileID: 275319299}
-  _stateSwitcher: {fileID: 275319305}
-  _startState: {fileID: 275319303}
+  _car: {fileID: 687858059}
   _shop: {fileID: 545775977}
   _boss: {fileID: 1006691202}
   _objectPools:
@@ -865,8 +864,6 @@ GameObject:
   - component: {fileID: 275319299}
   - component: {fileID: 275319302}
   - component: {fileID: 275319297}
-  - component: {fileID: 275319305}
-  - component: {fileID: 275319303}
   - component: {fileID: 275319304}
   - component: {fileID: 275319298}
   - component: {fileID: 275319308}
@@ -943,7 +940,7 @@ Transform:
   - {fileID: 2061145314}
   - {fileID: 687858055}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &275319297
 MonoBehaviour:
@@ -960,10 +957,8 @@ MonoBehaviour:
   _speed: 3
   _changeLineSpeed: 10
   _stepSize: 3
-  _maxHeight: 3
-  _minHeight: -3
   _jumpHeight: 0.5
-  _jumpDuration: 1.2
+  _jumpDuration: 1.3
   _car: {fileID: 687858059}
   _jumpStarted:
     m_PersistentCalls:
@@ -1066,13 +1061,13 @@ MonoBehaviour:
   _topScoreCollected:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 275319305}
-        m_TargetAssemblyTypeName: StateSwitcher, Assembly-CSharp
-        m_MethodName: SwitchState
-        m_Mode: 2
+      - m_Target: {fileID: 687858054}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
-          m_ObjectArgument: {fileID: 275319303}
-          m_ObjectArgumentAssemblyTypeName: State, Assembly-CSharp
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1160,7 +1155,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.040391684}
+  m_Offset: {x: -0.06921196, y: -0.040391684}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.6077497, y: 0.47530758}
@@ -1171,7 +1166,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.1947348}
+  m_Size: {x: 0.633584, y: 1.1947348}
   m_EdgeRadius: 0
 --- !u!114 &275319302
 MonoBehaviour:
@@ -1189,20 +1184,6 @@ MonoBehaviour:
   - {fileID: 685910286947552524, guid: 856870382946de9429e28b644ce872dd, type: 3}
   - {fileID: 7551226727301869193, guid: 194fd2fd535c4c948a41b3dbdb93e4d2, type: 3}
   _weaponContainer: {fileID: 2061145314}
---- !u!114 &275319303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 275319294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1620f0dda3818184eb356739e761e7e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioSource: {fileID: 275319307}
-  _runStateClip: {fileID: 8300000, guid: aa331f7bc5f9f1f4b95be76e12e2b54d, type: 3}
 --- !u!114 &275319304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1210,7 +1191,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275319294}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2614a567d1248da45b4df174955734cb, type: 3}
   m_Name: 
@@ -1218,21 +1199,6 @@ MonoBehaviour:
   _car: {fileID: 687858059}
   _carShooter: {fileID: 687858056}
   _carInterface: {fileID: 712110041}
-  _audioSource: {fileID: 687858061}
-  _driveStateClip: {fileID: 8300000, guid: ad87e8d7d3f115445949dae1c9fb9959, type: 3}
---- !u!114 &275319305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 275319294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4eecc7f1efd41842b16b0b8f81f8d01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startState: {fileID: 275319303}
 --- !u!95 &275319306
 Animator:
   serializedVersion: 3
@@ -1262,7 +1228,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: aa331f7bc5f9f1f4b95be76e12e2b54d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.1
   m_Pitch: 1
@@ -1360,7 +1326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bd72b473711edf44b0622ff9ccd81bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animationName: Hit
+  _animationName: 
 --- !u!1 &287404171
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,18 +1673,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 845694139}
-        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-        m_MethodName: OpenPanel
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 321951297}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 275319298}
         m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
         m_MethodName: set_enabled
@@ -1726,6 +1680,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 845694139}
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: OpenPanel
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 321951297}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3005,7 +2971,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &646017955
 GameObject:
@@ -3025,7 +2991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &646017956
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3109,6 +3075,7 @@ GameObject:
   - component: {fileID: 672196651}
   - component: {fileID: 672196650}
   - component: {fileID: 672196649}
+  - component: {fileID: 672196652}
   m_Layer: 5
   m_Name: RawImage
   m_TagString: Untagged
@@ -3186,6 +3153,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 672196647}
   m_CullTransparentMesh: 1
+--- !u!114 &672196652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 672196647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00518d9c84cde4244bf376c534d1387e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &687858054
 GameObject:
   m_ObjectHideFlags: 0
@@ -3331,6 +3310,48 @@ MonoBehaviour:
   _fuel: 20
   _fuelExpenditure: 1
   _carSpeed: 6
+  _launched:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 687858061}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: ad87e8d7d3f115445949dae1c9fb9959, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 275319307}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _stopped:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 275319307}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: PlayOneShot
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8300000, guid: aa331f7bc5f9f1f4b95be76e12e2b54d, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.AudioClip, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &687858060
 Animator:
   serializedVersion: 3
@@ -3763,7 +3784,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &833487695
 GameObject:
@@ -3858,7 +3879,7 @@ RectTransform:
   m_Children:
   - {fileID: 672196648}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3967,7 +3988,7 @@ RectTransform:
   - {fileID: 712110042}
   - {fileID: 646017956}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4302,7 +4323,7 @@ Transform:
   - {fileID: 1829788320}
   - {fileID: 1655224059}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &904266998
 MonoBehaviour:
@@ -4317,7 +4338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 275319299}
-  _xOffset: 18
+  _offsetX: 20
 --- !u!1 &926463118
 GameObject:
   m_ObjectHideFlags: 0
@@ -5410,7 +5431,7 @@ Transform:
   - {fileID: 619948898}
   - {fileID: 1027726938}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1230602001
 GameObject:
@@ -7055,7 +7076,7 @@ PrefabInstance:
       objectReference: {fileID: 845694134}
     - target: {fileID: 7146389371371147200, guid: 0054b314542f14549806562bffee1141, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7146389371371147200, guid: 0054b314542f14549806562bffee1141, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7734,6 +7755,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976116966}
   m_CullTransparentMesh: 1
+--- !u!1001 &2002148638
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 663915788070844102, guid: 5d39b93efea382e4cb5c2d2dca403390, type: 3}
+      propertyPath: m_Name
+      value: CarItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 663915788070844122, guid: 5d39b93efea382e4cb5c2d2dca403390, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 663915788070844122, guid: 5d39b93efea382e4cb5c2d2dca403390, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.2381873
+      objectReference: {fileID: 0}
+    - target: {fileID: 663915788070844122, guid: 5d39b93efea382e4cb5c2d2dca403390, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.6667135
+      objectReference: {fileID: 0}
+    - target: {fileID: 663915788070844122, guid: 5d39b93efea382e4cb5c2d2dca403390, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 663915788070844122, guid: 5d39b93efea382e4cb5c2d2dca403390, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 663915788070844122, guid: 5d39b93efea382e4cb5c2d2dca403390, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 663915788070844122, guid: 5d39b93efea382e4cb5c2d2dca403390, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 663915788070844122, guid: 5d39b93efea382e4cb5c2d2dca403390, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 663915788070844122, guid: 5d39b93efea382e4cb5c2d2dca403390, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 663915788070844122, guid: 5d39b93efea382e4cb5c2d2dca403390, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 663915788070844122, guid: 5d39b93efea382e4cb5c2d2dca403390, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5d39b93efea382e4cb5c2d2dca403390, type: 3}
 --- !u!1 &2013973586
 GameObject:
   m_ObjectHideFlags: 0

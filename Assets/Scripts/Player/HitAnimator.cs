@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 [RequireComponent(typeof(Shooter))]
-public class PlayerFighter : MonoBehaviour
+public class HitAnimator : MonoBehaviour
 {
     [SerializeField] private string _animationName;
 
@@ -20,9 +18,9 @@ public class PlayerFighter : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out Enemy enemy))
+        if (collision.TryGetComponent(out Enemy enemy))
         {
-            if (_currentWeapon.gameObject.TryGetComponent(out Animator animator))
+            if (_currentWeapon.TryGetComponent(out Animator animator))
                 animator.Play(_animationName);
         }
     }

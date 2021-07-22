@@ -13,21 +13,31 @@ public class Car : MonoBehaviour
     private int _currentHealth;
     private float _currentFuel;
 
-    public event UnityAction<float> Launched;
-    public event UnityAction Stopped;
+    [SerializeField] private UnityEvent<float> _launched;
+    [SerializeField] private UnityEvent _stopped;
+
     public event UnityAction<int, int> HealthChanged;
     public event UnityAction<float, float> FuelChanged;
+    public event UnityAction<float> Launched
+    {
+        add => _launched.AddListener(value);
+        remove => _launched.RemoveListener(value);
+    }
+    public event UnityAction Stopped
+    {
+        add => _stopped.AddListener(value);
+        remove => _stopped.RemoveListener(value);
+    }
 
     private void OnEnable()
     {
         ResetStats();
-        Launched?.Invoke(_carSpeed);
-        HealthChanged?.Invoke(_currentHealth, _health);
+        _launched?.Invoke(_carSpeed);
     }
 
     private void OnDisable()
     {
-        Stopped?.Invoke();
+        _stopped?.Invoke();
     }
 
     private void Update()

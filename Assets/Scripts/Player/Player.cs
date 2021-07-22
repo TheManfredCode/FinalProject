@@ -8,14 +8,15 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private int _health;
     [SerializeField] private int _topScore;
-    [SerializeField] private UnityEvent _died;
-    [SerializeField] private UnityEvent _topScoreCollected;
 
     private int _currentHealth;
     private int _money = 0;
     private int _score = 0;
 
     public int Money => _money;
+
+    [SerializeField] private UnityEvent _died;
+    [SerializeField] private UnityEvent _topScoreCollected;
 
     public event UnityAction<int, int> HealthChanged;
     public event UnityAction<int> MoneyChanged;

@@ -9,11 +9,11 @@ public class Restart : MonoBehaviour
     [SerializeField] private Button _button;
     [SerializeField] private CameraMover _cameraMover;
     [SerializeField] private Player _player;
-    [SerializeField] private StateSwitcher _stateSwitcher;
-    [SerializeField] private State _startState;
+    [SerializeField] private Car _car;
     [SerializeField] private Shop _shop;
     [SerializeField] private Boss _boss;
     [SerializeField] private ObjectPool[] _objectPools;
+
     [SerializeField] private UnityEvent _restarted;
 
     private void OnEnable()
@@ -29,9 +29,9 @@ public class Restart : MonoBehaviour
     private void OnRestartButtonClicked()
     {
         _player.Restart();
-        _player.gameObject.GetComponent<Shooter>().Restart();
+        _player.GetComponent<Shooter>().Restart();
 
-        _stateSwitcher.SwitchState(_startState);
+        _car.gameObject.SetActive(false);
 
         _cameraMover.Restart();
         _shop.Restart();

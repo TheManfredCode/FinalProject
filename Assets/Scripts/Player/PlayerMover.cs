@@ -9,43 +9,44 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] private float _speed;
     [SerializeField] private float _changeLineSpeed;
     [SerializeField] private float _stepSize;
-    [SerializeField] private float _maxHeight;
-    [SerializeField] private float _minHeight;
     [SerializeField] private float _jumpHeight;
     [SerializeField] private float _jumpDuration;
     [SerializeField] private Car _car;
+
+    private Player _player;
+    private BoxCollider2D _collider;
+    private WaitForSeconds _jumpTimer;
+    private Vector2 _heightValues;
+    private Vector2 _startColliderOffset;
+    private float _targetPositionY;
+    private bool _isGrounded = true;
+    private float _currentSpeed;
+    public bool IsGrounded => _isGrounded;
+    public float CurrentSpeed => _currentSpeed;
 
     [SerializeField] private UnityEvent _jumpStarted;
     [SerializeField] private UnityEvent _jumpFinished;
     [SerializeField] private UnityEvent _stopped;
 
-    private float _currentSpeed;
-    private bool _isGrounded = true;
-    private float _targetPositionY;
-    private BoxCollider2D _collider;
-    private WaitForSeconds _jumpTimer;
-    private Vector2 _startColliderOffset;
-    private Player _player;
-
     public event UnityAction<float, float> SpeedChanged;
-    public bool IsGrounded => _isGrounded;
-    public float CurrentSpeed => _currentSpeed;
 
     private void OnEnable()
     {
-        _car.Launched += OnCarLaunched;
-        _car.Stopped += OnCarStopped;
+        _car.Launched += OnLaunched;
+        _car.Stopped += OnStopped;
     }
 
     private void OnDisable()
     {
-        _car.Launched -= OnCarLaunched;
-        _car.Stopped -= OnCarStopped;
+        _car.Launched -= OnLaunched;
+        _car.Stopped -= OnStopped;
     }
 
     private void Start()
     {
         _collider = GetComponent<BoxCollider2D>();
+        _heightValues = new Vector2(_stepSize, -_stepSize);
+
         _jumpTimer = new WaitForSeconds(_jumpDuration);
         _jumpStarted?.Invoke();
 
@@ -82,13 +83,13 @@ public class PlayerMover : MonoBehaviour
 
     public void TryMoveUp()
     {
-        if (_targetPositionY < _maxHeight)
+        if (_targetPositionY < _heightValues.x)
             _targetPositionY += _stepSize;
     }
 
     public void TryMoveDown()
     {
-        if (_targetPositionY > _minHeight)
+        if (_targetPositionY > _heightValues.y)
             _targetPositionY -= _stepSize;
     }
 
@@ -103,13 +104,13 @@ public class PlayerMover : MonoBehaviour
         _targetPositionY = 0;
     }
 
-    private void OnCarLaunched(float speed)
+    private void OnLaunched(float speed)
     {
         SpeedChanged?.Invoke(_currentSpeed, speed);
         _currentSpeed = speed;
     }
 
-    private void OnCarStopped()
+    private void OnStopped()
     {
         SpeedChanged?.Invoke(_currentSpeed, _speed);
         _currentSpeed = _speed;

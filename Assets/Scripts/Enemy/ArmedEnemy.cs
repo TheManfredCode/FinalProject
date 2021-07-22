@@ -11,10 +11,11 @@ public class ArmedEnemy : Enemy
     [SerializeField] private float _fireRate;
     [SerializeField] private float _dischargeRate;
     [SerializeField] private float _firstDischargeTime;
-    [SerializeField] private UnityEvent _shooted;
 
     private float _elapsedTime;
     private WaitForSeconds _reloadTime;
+
+    [SerializeField] private UnityEvent _shooted;
 
     private new void OnEnable()
     {

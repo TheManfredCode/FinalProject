@@ -27,7 +27,7 @@ public class Inventory : MonoBehaviour
 
     private void Start()
     {
-        _playerShooter = _player.gameObject.GetComponent<Shooter>();
+        _playerShooter = _player.GetComponent<Shooter>();
         _playerShooter.WeaponSwitched += OnWeaponSwitched;
 
         _weaponView.Render(_playerShooter.CurrentWeapon);
